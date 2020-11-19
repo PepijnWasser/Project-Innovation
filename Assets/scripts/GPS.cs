@@ -75,6 +75,7 @@ public class GPS : MonoBehaviour
             yield break;
         }
 
+        //message = "connected";
         latitude = Input.location.lastData.latitude;
         longitude = Input.location.lastData.longitude;
 

@@ -19,16 +19,16 @@ public class CheckEvent : MonoBehaviour
             if (dist <= spawnDistance)
             {
                 CustomEvent.Instance.CreateEvent(i);
-                GPS.Instance.message = "creating event " + dist;
+                GPS.Instance.message = "creating event " + dist.ToString();
             }
             else if (dist >= despawnDistance)
             {
                 CustomEvent.Instance.DeleteEvent(i);
-                GPS.Instance.message = "deleting event " + dist;
+                GPS.Instance.message = "deleting event " + dist.ToString();
             }
             else
             {
-                GPS.Instance.message = "doing nothing " + dist;
+                GPS.Instance.message = "doing nothing " + dist.ToString();
             }
         }
     }
