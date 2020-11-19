@@ -11,35 +11,34 @@ public class CustomEvent : MonoBehaviour
 
     public GameObject[] scenePrefabs;
     public List<GameObject> scenes = new List<GameObject>();
+    ARSessionOrigin m_SessionOrigin;
 
     private void Start()
     {
         Instance = this;
+        m_SessionOrigin = GetComponent<ARSessionOrigin>();
         DontDestroyOnLoad(gameObject);
         CreateEvent(0);
-        //DeleteEvent(0);
     }
 
     public void DeleteEvent(int sceneNumber)
     {
-        if(scenes.Count > 0)
+        if (scenes.Count > 0)
         {
             List<GameObject> scenesToRemove = new List<GameObject>();
 
             for (int i = 0; i < scenes.Count; i++)
             {
-                if(scenes[i].gameObject.name == scenePrefabs[sceneNumber].name)
+                if (scenes[i].gameObject.name == scenePrefabs[sceneNumber].name)
                 {
-                    Debug.Log("chi");
                     scenesToRemove.Add(scenes[i]);
                 }
             }
 
-            foreach(GameObject scene in scenesToRemove)
+            foreach (GameObject scene in scenesToRemove)
             {
                 scenes.Remove(scene);
                 Destroy(scene.gameObject);
-                Debug.Log("hi");
             }
 
             scenesToRemove.Clear();
@@ -48,19 +47,20 @@ public class CustomEvent : MonoBehaviour
 
     public void CreateEvent(int sceneNumber)
     {
-        if(scenePrefabs.Length >= sceneNumber)
+        if(scenePrefabs.Length >= sceneNumber + 1 )
         {
             if (scenes.Count > 0)
             {
                 bool nameIsThere = false;
                 for (int i = 0; i < scenes.Count; i++)
                 {
-                    if (scenes[sceneNumber].gameObject.name == scenePrefabs[sceneNumber].name)
+                    string objectname = scenes[i].gameObject.name;
+                    string prefabname = scenePrefabs[sceneNumber].name;
+                    if (objectname == prefabname)
                     {
                         nameIsThere = true;
                     }
                 }
-
                 if (!nameIsThere)
                 {
                     Debug.Log("making scnene no name");
@@ -68,7 +68,8 @@ public class CustomEvent : MonoBehaviour
                     GameObject obj = (GameObject)(Instantiate(scenePrefabs[sceneNumber], Vector3.zero, Quaternion.identity));
                     obj.name = scenePrefabs[sceneNumber].name;
                     obj.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
-                    obj.transform.position = new Vector3(0, -0.5f, 1);
+                    //obj.transform.position = new Vector3(0, -0.5f, 1);
+                    m_SessionOrigin.MakeContentAppearAt(obj.transform, new Vector3(0, -0.5f, 1), Quaternion.identity);
                     scenes.Add(obj);
                 }
                 else
@@ -83,7 +84,9 @@ public class CustomEvent : MonoBehaviour
                 GameObject obj = (GameObject)(Instantiate(scenePrefabs[sceneNumber], Vector3.zero, Quaternion.identity));
                 obj.name = scenePrefabs[sceneNumber].name;
                 obj.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
-                obj.transform.position = new Vector3(0, -0.5f, 1);
+                m_SessionOrigin.MakeContentAppearAt(obj.transform, new Vector3(0, -0.5f, 1), Quaternion.identity);
+                //obj.transform.position = new Vector3(0, -0.5f, 1);
+                
                 scenes.Add(obj);
             }
         }
