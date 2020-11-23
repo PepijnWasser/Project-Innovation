@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 40919617}
   m_Layer: 0
   m_Name: AR Session Origin
-  m_TagString: Untagged
+  m_TagString: origin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,7 +161,7 @@ Transform:
   m_GameObject: {fileID: 40919614}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 1114040585}
   m_Father: {fileID: 0}
@@ -5029,11 +5029,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0364ceb336da37d4fbbf5628aa105b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnDistance: 0.0006
-  despawnDistance: 0.0006
+  spawnDistance: 0.0008
+  despawnDistance: 0.0008
   eventLocations:
   - {x: 52.26955, y: 6.766833}
-  - {x: 52.2695, y: 6.7668}
+  - {x: 52.26955, y: 6.766833}
   d: 0
 --- !u!114 &168106861
 MonoBehaviour:
@@ -5051,6 +5051,7 @@ MonoBehaviour:
   - {fileID: 3239264038498993191, guid: e4b69ad3dcd82624181f59191366f9d0, type: 3}
   - {fileID: 3239264038498993191, guid: cc5e9189cf5fc9c488f6c3e161389fa0, type: 3}
   scenes: []
+  m_Content: {fileID: 0}
 --- !u!4 &168106862
 Transform:
   m_ObjectHideFlags: 0
@@ -5306,8 +5307,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3, y: 139}
-  m_SizeDelta: {x: 300, y: 300}
+  m_AnchoredPosition: {x: -3, y: -12}
+  m_SizeDelta: {x: 360, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &633987596
 MonoBehaviour:
@@ -5474,7 +5475,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &854905463
 Transform:
   m_ObjectHideFlags: 0
@@ -5483,7 +5484,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854905462}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.99, y: 0, z: 0}
+  m_LocalPosition: {x: -0.22, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 223974230}
@@ -5705,6 +5706,8 @@ MonoBehaviour:
   latitude: 0
   longitude: 0
   message: 
+  message2: 
+  message3: 
 --- !u!4 &1985308838
 Transform:
   m_ObjectHideFlags: 0

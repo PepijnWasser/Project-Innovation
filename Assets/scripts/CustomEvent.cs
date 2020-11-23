@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
-using System;
 
 public class CustomEvent : MonoBehaviour
 {
@@ -11,14 +11,23 @@ public class CustomEvent : MonoBehaviour
 
     public GameObject[] scenePrefabs;
     public List<GameObject> scenes = new List<GameObject>();
+
+
+    Quaternion m_Rotation;
+    public Transform m_Content;
     ARSessionOrigin m_SessionOrigin;
+    ARRaycastManager m_RaycastManager;
+
+    private void Awake()
+    {
+        m_SessionOrigin = GameObject.FindGameObjectWithTag("origin").GetComponent<ARSessionOrigin>();
+        m_RaycastManager = GameObject.FindGameObjectWithTag("origin").GetComponent<ARRaycastManager>();
+    }
 
     private void Start()
     {
         Instance = this;
-        m_SessionOrigin = GetComponent<ARSessionOrigin>();
         DontDestroyOnLoad(gameObject);
-        CreateEvent(0);
     }
 
     public void DeleteEvent(int sceneNumber)
@@ -64,13 +73,31 @@ public class CustomEvent : MonoBehaviour
                 if (!nameIsThere)
                 {
                     Debug.Log("making scnene no name");
-                    //GameObject obj = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                    /*
                     GameObject obj = (GameObject)(Instantiate(scenePrefabs[sceneNumber], Vector3.zero, Quaternion.identity));
                     obj.name = scenePrefabs[sceneNumber].name;
                     obj.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
-                    //obj.transform.position = new Vector3(0, -0.5f, 1);
                     m_SessionOrigin.MakeContentAppearAt(obj.transform, new Vector3(0, -0.5f, 1), Quaternion.identity);
                     scenes.Add(obj);
+                    */
+                    Vector2 middleScreen = new Vector2(Screen.width / 2, Screen.height / 2);
+                    List<ARRaycastHit> s_Hits = new List<ARRaycastHit>();
+
+                    if (m_RaycastManager.Raycast(middleScreen, s_Hits, TrackableType.All))
+                    {
+                        // Raycast hits are sorted by distance, so the first one
+                        // will be the closest hit.
+                        var hitPose = s_Hits[0].pose;
+
+                        GameObject obj = (GameObject)(Instantiate(scenePrefabs[sceneNumber], Vector3.zero, Quaternion.identity));
+                        obj.name = scenePrefabs[sceneNumber].name;
+
+                        // This does not move the content; instead, it moves and orients the ARSessionOrigin
+                        // such that the content appears to be at the raycast hit position.
+                        m_SessionOrigin.MakeContentAppearAt(obj.transform, hitPose.position, m_Rotation);
+
+                        scenes.Add(obj);
+                    }
                 }
                 else
                 {
@@ -80,14 +107,32 @@ public class CustomEvent : MonoBehaviour
             else
             {
                 Debug.Log("making scene no scene");
-                //GameObject obj = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                /*
                 GameObject obj = (GameObject)(Instantiate(scenePrefabs[sceneNumber], Vector3.zero, Quaternion.identity));
                 obj.name = scenePrefabs[sceneNumber].name;
                 obj.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
-                m_SessionOrigin.MakeContentAppearAt(obj.transform, new Vector3(0, -0.5f, 1), Quaternion.identity);
-                //obj.transform.position = new Vector3(0, -0.5f, 1);
-                
+                m_SessionOrigin.MakeContentAppearAt(obj.transform, new Vector3(0, -0.5f, 1), Quaternion.identity);              
                 scenes.Add(obj);
+                */
+
+                Vector2 middleScreen = new Vector2(Screen.width / 2, Screen.height / 2);
+                List<ARRaycastHit> s_Hits = new List<ARRaycastHit>();
+
+                if (m_RaycastManager.Raycast(middleScreen, s_Hits, TrackableType.All))
+                {
+                    // Raycast hits are sorted by distance, so the first one
+                    // will be the closest hit.
+                    var hitPose = s_Hits[0].pose;
+
+                    GameObject obj = (GameObject)(Instantiate(scenePrefabs[sceneNumber], Vector3.zero, Quaternion.identity));
+                    obj.name = scenePrefabs[sceneNumber].name;
+
+                    // This does not move the content; instead, it moves and orients the ARSessionOrigin
+                    // such that the content appears to be at the raycast hit position.
+                    m_SessionOrigin.MakeContentAppearAt(obj.transform, hitPose.position, m_Rotation);
+
+                    scenes.Add(obj);
+                }
             }
         }
         else
@@ -96,3 +141,80 @@ public class CustomEvent : MonoBehaviour
         }
     }
 }
+
+/*
+
+namespace UnityEngine.XR.ARFoundation.Samples
+{
+    /// <summary>
+    /// Moves the ARSessionOrigin in such a way that it makes the given content appear to be
+    /// at a given location acquired via a raycast.
+    /// </summary>
+    [RequireComponent(typeof(ARSessionOrigin))]
+    [RequireComponent(typeof(ARRaycastManager))]
+    public class MakeAppearOnPlane : MonoBehaviour
+    {
+        [SerializeField]
+        [Tooltip("A transform which should be made to appear to be at the touch point.")]
+        Transform m_Content;
+
+        /// <summary>
+        /// A transform which should be made to appear to be at the touch point.
+        /// </summary>
+        public Transform content
+        {
+            get { return m_Content; }
+            set { m_Content = value; }
+        }
+
+        [SerializeField]
+        [Tooltip("The rotation the content should appear to have.")]
+        Quaternion m_Rotation;
+
+        /// <summary>
+        /// The rotation the content should appear to have.
+        /// </summary>
+        public Quaternion rotation
+        {
+            get { return m_Rotation; }
+            set
+            {
+                m_Rotation = value;
+                if (m_SessionOrigin != null)
+                    m_SessionOrigin.MakeContentAppearAt(content, content.transform.position, m_Rotation);
+            }
+        }
+
+        void Awake()
+        {
+            m_SessionOrigin = GetComponent<ARSessionOrigin>();
+            m_RaycastManager = GetComponent<ARRaycastManager>();
+        }
+
+        void Update()
+        {
+            if (Input.touchCount == 0 || m_Content == null)
+                return;
+
+            var touch = Input.GetTouch(0);
+
+            if (m_RaycastManager.Raycast(touch.position, s_Hits, TrackableType.PlaneWithinPolygon))
+            {
+                // Raycast hits are sorted by distance, so the first one
+                // will be the closest hit.
+                var hitPose = s_Hits[0].pose;
+
+                // This does not move the content; instead, it moves and orients the ARSessionOrigin
+                // such that the content appears to be at the raycast hit position.
+                m_SessionOrigin.MakeContentAppearAt(content, hitPose.position, m_Rotation);
+            }
+        }
+
+        static List<ARRaycastHit> s_Hits = new List<ARRaycastHit>();
+
+        ARSessionOrigin m_SessionOrigin;
+
+        ARRaycastManager m_RaycastManager;
+    }
+}
+*/
