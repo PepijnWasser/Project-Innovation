@@ -13,10 +13,6 @@ public class GPS : MonoBehaviour
     public float latitude;
     public float longitude;
     public string message;
-    public string message2;
-    public string message3;
-
-    private bool CoroutineRunning = false;
 
     private void Start()
     {
@@ -37,21 +33,11 @@ public class GPS : MonoBehaviour
         StartCoroutine(StartLocationService());
     }
 
-    private void Update()
-    {
-        if (!CoroutineRunning)
-        {
-            StartCoroutine(StartLocationService());
-        }     
-    }
-
     private IEnumerator StartLocationService()
     {
-        CoroutineRunning = true;
         if (!Input.location.isEnabledByUser)
         {
-            message2 = "User has not enabled GPS";
-            CoroutineRunning = false;
+            message = "User has not enabled GPS";
             yield break;
         }
 
@@ -65,23 +51,19 @@ public class GPS : MonoBehaviour
 
         if(maxWait <= 0)
         {
-            message2 = "Timed out";
-            CoroutineRunning = false;
+            message = "Timed out";
             yield break;
         }
 
         if(Input.location.status == LocationServiceStatus.Failed)
         {
-            message2 = "Unable to determine device location";
-            CoroutineRunning = false;
+            message = "Unable to determine device location";
             yield break;
         }
 
-        message2 = "connected";
         latitude = Input.location.lastData.latitude;
         longitude = Input.location.lastData.longitude;
 
-        CoroutineRunning = false;
         yield break;
     }
 }
