@@ -15,6 +15,7 @@ public class GPS : MonoBehaviour
     public string message;
     public string message2;
     public string message3;
+    public string message4;
 
     private bool CoroutineRunning = false;
 
