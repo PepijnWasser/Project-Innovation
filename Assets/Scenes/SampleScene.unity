@@ -161,7 +161,7 @@ Transform:
   m_GameObject: {fileID: 40919614}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1114040585}
   m_Father: {fileID: 0}
@@ -5034,8 +5034,8 @@ MonoBehaviour:
   eventLocations:
   - {x: 52.26955, y: 6.766833}
   - {x: 52.26955, y: 6.766833}
-  - {x: 52.29408, y: 6.796205}
-  d: 0
+  - {x: 52.26955, y: 6.766833}
+  - {x: 52.26955, y: 6.766833}
 --- !u!114 &168106861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5050,10 +5050,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scenePrefabs:
   - {fileID: 3239264038498993191, guid: e4b69ad3dcd82624181f59191366f9d0, type: 3}
+  - {fileID: 198569028808624059, guid: a648f5c0b08e8a045a158e2514f705aa, type: 3}
   - {fileID: 3239264038498993191, guid: cc5e9189cf5fc9c488f6c3e161389fa0, type: 3}
-  - {fileID: 3239264038498993191, guid: e4b69ad3dcd82624181f59191366f9d0, type: 3}
+  - {fileID: 1379534897785968208, guid: 448dd3ed23f1215488aac2afd5a10619, type: 3}
   scenes: []
-  m_Content: {fileID: 0}
 --- !u!4 &168106862
 Transform:
   m_ObjectHideFlags: 0
@@ -5391,6 +5391,21 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1157501344868499200, guid: 4af2576c2e794d741b8089dee3e98175,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 6.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1157501344899356765, guid: 4af2576c2e794d741b8089dee3e98175,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -13.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1157501344899356765, guid: 4af2576c2e794d741b8089dee3e98175,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1157501345906807971, guid: 4af2576c2e794d741b8089dee3e98175,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -5400,6 +5415,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 1157501346006239151, guid: 4af2576c2e794d741b8089dee3e98175,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -13.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1157501346301239448, guid: 4af2576c2e794d741b8089dee3e98175,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -13.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1157501346301239448, guid: 4af2576c2e794d741b8089dee3e98175,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902778956900560994, guid: 4af2576c2e794d741b8089dee3e98175,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -13.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4af2576c2e794d741b8089dee3e98175, type: 3}
@@ -5439,7 +5474,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -3, y: -12}
-  m_SizeDelta: {x: 360, y: 450}
+  m_SizeDelta: {x: 360, y: 550}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &633987596
 MonoBehaviour:
@@ -5714,7 +5749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_FocusMode: 1
-  m_LightEstimationMode: 0
+  m_LightEstimationMode: 1
 --- !u!114 &1114040584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5874,6 +5909,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5943362075935960274, guid: 89d798d452ba3d04987ff86fad50cf7b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -13.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5943362075935960274, guid: 89d798d452ba3d04987ff86fad50cf7b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89d798d452ba3d04987ff86fad50cf7b, type: 3}
 --- !u!1 &1577749883
@@ -5980,6 +6025,7 @@ MonoBehaviour:
   message: 
   message2: 
   message3: 
+  message4: 
 --- !u!4 &1985308838
 Transform:
   m_ObjectHideFlags: 0

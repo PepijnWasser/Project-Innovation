@@ -7,13 +7,12 @@ public class CheckEvent : MonoBehaviour
     public float spawnDistance;
     public float despawnDistance;
     public Vector2[] eventLocations;
-    public float d;
+    int o = 0;
 
     void Update()
     {
         Vector2 currentPos = new Vector2(GPS.Instance.latitude, GPS.Instance.longitude);
-        //Vector2 currentPos = new Vector2(52, 600);
-        for(int i = 0; i < eventLocations.Length; i++)
+        for(int i = 0 + o; i < eventLocations.Length; i++)
         {
             float dist = Vector2.Distance(currentPos, eventLocations[i]);
             GPS.Instance.message3 = dist.ToString();
@@ -24,7 +23,7 @@ public class CheckEvent : MonoBehaviour
                 GPS.Instance.message = "creating event ";
                 Debug.Log("creating event");
             }
-            else if (dist >= despawnDistance)
+            else if (dist > despawnDistance)
             {
                 CustomEvent.Instance.DeleteEvent(i);
                 GPS.Instance.message3 = dist.ToString();
