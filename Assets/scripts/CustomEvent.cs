@@ -16,8 +16,6 @@ public class CustomEvent : MonoBehaviour
     ARRaycastManager m_RaycastManager;
     ARSessionOrigin c_m_RaycastManager;
 
-    int n = 0;
-
     private void Start()
     {
         m_SessionOrigin = GameObject.FindGameObjectWithTag("origin").GetComponent<ARSessionOrigin>();
@@ -29,8 +27,6 @@ public class CustomEvent : MonoBehaviour
 
     public void DeleteEvent(int sceneNumber)
     {
-        n++;
-        GPS.Instance.message4 = n.ToString();
         if (scenes.Count > 0)
         {
             List<GameObject> scenesToRemove = new List<GameObject>();
@@ -56,7 +52,6 @@ public class CustomEvent : MonoBehaviour
     public void CreateEvent(int sceneNumber)
     {
         m_SessionOrigin = c_m_RaycastManager;
-      //  GPS.Instance.message4 = m_SessionOrigin.transform.position.ToString();
 
         if (scenePrefabs.Length >= sceneNumber + 1 )
         {
@@ -75,7 +70,6 @@ public class CustomEvent : MonoBehaviour
                 if (!nameIsThere)
                 {
                     Debug.Log("making scnene no name");
-                  //  GPS.Instance.message4 = "no name" + sceneNumber.ToString();
                     Vector2 middleScreen = new Vector2(Screen.width / 2, Screen.height / 2);
                     List<ARRaycastHit> s_Hits = new List<ARRaycastHit>();
 
@@ -94,18 +88,17 @@ public class CustomEvent : MonoBehaviour
                        // m_SessionOrigin.MakeContentAppearAt(obj.transform, hitPose.position, Quaternion.identity);
 
                         scenes.Add(obj);
+                        VisitedPlaces.Instance.addPlace(sceneNumber);
                     }
                 }
                 else
                 {
                     Debug.Log("scene already exists");
-                    //GPS.Instance.message4 = "scene exists";
                 }
             }
             else
             {
                 Debug.Log("making scene no scene" + sceneNumber.ToString());
-               // GPS.Instance.message4 = "no scene";
 
                 Vector2 middleScreen = new Vector2(Screen.width / 2, Screen.height / 2);
                 List<ARRaycastHit> s_Hits = new List<ARRaycastHit>();
@@ -125,13 +118,13 @@ public class CustomEvent : MonoBehaviour
                     // m_SessionOrigin.MakeContentAppearAt(obj.transform, hitPose.position, Quaternion.identity);
 
                     scenes.Add(obj);
+                    VisitedPlaces.Instance.addPlace(sceneNumber);
                 }
             }
         }
         else
         {
             Debug.LogError("Bad input!");
-            //GPS.Instance.message4 = "bad input";
         }
     }
 }

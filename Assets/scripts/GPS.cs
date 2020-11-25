@@ -12,10 +12,9 @@ public class GPS : MonoBehaviour
 
     public float latitude;
     public float longitude;
-    public string message;
-    public string message2;
-    public string message3;
-    public string message4;
+    public string status;
+    public string distance;
+    public string debugmessage = "tete";
 
     private bool CoroutineRunning = false;
 
@@ -51,7 +50,7 @@ public class GPS : MonoBehaviour
         CoroutineRunning = true;
         if (!Input.location.isEnabledByUser)
         {
-            message2 = "User has not enabled GPS";
+            status = "User has not enabled GPS";
             CoroutineRunning = false;
             yield break;
         }
@@ -66,19 +65,19 @@ public class GPS : MonoBehaviour
 
         if(maxWait <= 0)
         {
-            message2 = "Timed out";
+            status = "Timed out";
             CoroutineRunning = false;
             yield break;
         }
 
         if(Input.location.status == LocationServiceStatus.Failed)
         {
-            message2 = "Unable to determine device location";
+            status = "Unable to determine device location";
             CoroutineRunning = false;
             yield break;
         }
 
-        message2 = "connected";
+        status = "connected";
         latitude = Input.location.lastData.latitude;
         longitude = Input.location.lastData.longitude;
 

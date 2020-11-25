@@ -10,11 +10,10 @@ public class UpdateGPS : MonoBehaviour
     private void Update()
     {
         coords.text =
-            "Lat: " + GPS.Instance.latitude.ToString() +
+            "\nStatus: " + GPS.Instance.status +
+            "\nLat: " + GPS.Instance.latitude.ToString() +
             "\nLon: " + GPS.Instance.longitude.ToString() +
-            "\n" + GPS.Instance.message +
-            "\n" + GPS.Instance.message3 +
-            "\n" + GPS.Instance.message2 +
-            "\n" + GPS.Instance.message4;
+            "\nDist: " + GPS.Instance.distance +
+            "\n" + GPS.Instance.debugmessage;
     }
 }

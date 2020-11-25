@@ -5010,6 +5010,7 @@ GameObject:
   - component: {fileID: 168106862}
   - component: {fileID: 168106861}
   - component: {fileID: 168106860}
+  - component: {fileID: 168106863}
   m_Layer: 0
   m_Name: EventManager
   m_TagString: Untagged
@@ -5032,9 +5033,6 @@ MonoBehaviour:
   spawnDistance: 0.0008
   despawnDistance: 0.0008
   eventLocations:
-  - {x: 52.26955, y: 6.766833}
-  - {x: 52.26955, y: 6.766833}
-  - {x: 52.26955, y: 6.766833}
   - {x: 52.26955, y: 6.766833}
 --- !u!114 &168106861
 MonoBehaviour:
@@ -5068,6 +5066,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &168106863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168106859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f61fc9a84aba3e40a5555abfe403ef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &223974226
 GameObject:
   m_ObjectHideFlags: 0
@@ -5175,6 +5185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221e6ffc552ad1c4e9fd9a58ebc6bdc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startPos: {x: 0, y: 0, z: 0}
+  rot: 0
 --- !u!1 &259715463
 GameObject:
   m_ObjectHideFlags: 0
@@ -5399,7 +5411,7 @@ PrefabInstance:
     - target: {fileID: 1157501344899356765, guid: 4af2576c2e794d741b8089dee3e98175,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -13.25
+      value: -13.250061
       objectReference: {fileID: 0}
     - target: {fileID: 1157501344899356765, guid: 4af2576c2e794d741b8089dee3e98175,
         type: 3}
@@ -5424,7 +5436,7 @@ PrefabInstance:
     - target: {fileID: 1157501346301239448, guid: 4af2576c2e794d741b8089dee3e98175,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -13.25
+      value: -13.250061
       objectReference: {fileID: 0}
     - target: {fileID: 1157501346301239448, guid: 4af2576c2e794d741b8089dee3e98175,
         type: 3}
@@ -5474,7 +5486,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -3, y: -12}
-  m_SizeDelta: {x: 360, y: 550}
+  m_SizeDelta: {x: 420, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &633987596
 MonoBehaviour:
@@ -5521,11 +5533,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'LAT: 99.999
+  m_Text: 'Status: creating event
+
+    LAT: 99.999
 
     LONG: 99.999
 
-    message'
+    Dist: 000.00000
+
+'
 --- !u!222 &633987598
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5912,7 +5928,7 @@ PrefabInstance:
     - target: {fileID: 5943362075935960274, guid: 89d798d452ba3d04987ff86fad50cf7b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -13.25
+      value: -13.250061
       objectReference: {fileID: 0}
     - target: {fileID: 5943362075935960274, guid: 89d798d452ba3d04987ff86fad50cf7b,
         type: 3}
@@ -6022,10 +6038,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   latitude: 0
   longitude: 0
-  message: 
-  message2: 
-  message3: 
-  message4: 
+  status: 
+  distance: 
+  debugmessage: 
 --- !u!4 &1985308838
 Transform:
   m_ObjectHideFlags: 0
