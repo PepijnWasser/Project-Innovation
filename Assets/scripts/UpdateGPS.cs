@@ -9,16 +9,6 @@ public class UpdateGPS : MonoBehaviour
 
     private void Update()
     {
-        if (coords == null)
-        {
-            Debug.Log("if statement");
-        }
-        if (GPS.Instance == null)
-        {
-            Debug.Log("gps null");
-        }
-            coords.text = "Lat: " + GPS.Instance.latitude.ToString() + "\nLon: " + GPS.Instance.longitude.ToString() + "\n" + GPS.Instance.message;
-        
+        coords.text = "Lat: " + GPS.Instance.latitude.ToString() + "\nLon: " + GPS.Instance.longitude.ToString() + "\n" + GPS.Instance.message + "\n" + GPS.Instance.message3 + "\n" + GPS.Instance.message2;
     }
-
 }

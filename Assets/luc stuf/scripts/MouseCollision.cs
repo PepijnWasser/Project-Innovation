@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MouseCollision : MonoBehaviour
 {
-    public Vector3 MoveCar;
     Animator animator;
     private void Start()
     {
@@ -12,7 +11,6 @@ public class MouseCollision : MonoBehaviour
     }
     void OnMouseDown()
     {
-        //gameObject.transform.position = transform.position + MoveCar;
         //animator.SetTrigger("MoveCar");
         animator.SetBool("MoveBool",true);
 
