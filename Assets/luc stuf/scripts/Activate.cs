@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseCollision : MonoBehaviour
+public class Activate : MonoBehaviour
 {
     Animator animator;
     private void Start()
@@ -12,7 +12,7 @@ public class MouseCollision : MonoBehaviour
     void OnMouseDown()
     {
         //animator.SetTrigger("MoveCar");
-        animator.SetBool("MoveBool",true);
+        animator.SetBool("Activate", true);
 
     }
 }
