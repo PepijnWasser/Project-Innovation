@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseCollision : MonoBehaviour
+public class ExplodingWall : MonoBehaviour
 {
     Animator animator;
     private void Start()
@@ -11,8 +11,7 @@ public class MouseCollision : MonoBehaviour
     }
     void OnMouseDown()
     {
-        //animator.SetTrigger("MoveCar");
-        animator.SetBool("MoveBool",true);
+        animator.SetBool("Explode", true);
 
     }
 }
