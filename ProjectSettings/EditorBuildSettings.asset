@@ -8,5 +8,5 @@ EditorBuildSettings:
   m_configObjects:
     com.unity.xr.arcore.PlayerSettings: {fileID: 11400000, guid: 8dba1cf7b450212438c0c3ed480b7e17,
       type: 2}
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 0d17d105b70b7c347b2c7d2951bc5927,
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 6fcb7ccc3d22a2a41991ea1521c3db5d,
       type: 2}
