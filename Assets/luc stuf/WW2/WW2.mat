@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6156203715467287243
+--- !u!114 &-4512171924288980505
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: test
+  m_Name: WW2
   m_Shader: {fileID: -6465566751694194690, guid: 2c20498166a247f4dba36d7b89dfba06,
     type: 3}
   m_ShaderKeywords: 
@@ -34,7 +34,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_723385D6:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: e8c15ee551612e14a806856a2ba537ed, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -66,10 +66,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_A49B7E69: 0.65
-    - Vector1_E91D683B: 0.115
-    - Vector1_E93F3904: 1
-    - Vector1_EEF5D0BF: 0.608
+    - Vector1_A49B7E69: 0.45
+    - Vector1_E91D683B: 0.261
+    - Vector1_E93F3904: 0.055
+    - Vector1_EEF5D0BF: 0.306
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -92,9 +92,9 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_4B9325FF: {r: 0, g: 0.21829796, b: 1, a: 0}
-    - Color_6F45BF57: {r: 0.1721698, g: 0.41573593, b: 0.5, a: 0}
-    - _BaseColor: {r: 0.12771448, g: 0.6603774, b: 0.15692195, a: 1}
+    - Color_4B9325FF: {r: 0.9056604, g: 0.8701754, b: 0.55108577, a: 0}
+    - Color_6F45BF57: {r: 0.26415092, g: 0.245461, b: 0.245461, a: 0}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}

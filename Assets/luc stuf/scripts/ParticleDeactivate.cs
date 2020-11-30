@@ -9,10 +9,11 @@ public class ParticleDeactivate : MonoBehaviour
     public ParticleSystem particleSmoke;
     public int particleAmount = 1;
     public AudioSource source;
+    ParticleSystem Clicked;
     void Start()
     {
         source.Play();
-
+        Clicked = this.transform.Find("Clicked!").GetComponent<ParticleSystem>();
     }
     void FixedUpdate()
     {
@@ -26,7 +27,8 @@ public class ParticleDeactivate : MonoBehaviour
         particleAmount = 0;
         FireOff = GetComponent<AudioSource>();
         FireOff.Play(0);
-        
+        Clicked.Play();
+
     }
 }
 
