@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5182090721414908045}
   - component: {fileID: 5182090721414908044}
   m_Layer: 0
-  m_Name: Particle System (4)
+  m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -860,12 +860,12 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
   EmissionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 30
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4873,7 +4873,7 @@ AudioSource:
   m_GameObject: {fileID: 5182090722394836425}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: caadef8c620d7ef4f94154b260ea105a,
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 6a41cb2db8b2e744d98a79cf96897655,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 335baf57de56aee43882d78543aaa85c, type: 3}
   m_PlayOnAwake: 0
@@ -4973,9 +4973,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53c8cb37ccb425e448e9e819ea79b861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleFire: {fileID: 5182090722408260149}
-  particleSmoke: {fileID: 5182090721414908045}
-  particleAmount: 1
   source: {fileID: 8155339330331533112}
 --- !u!2083052967 &3203699236993599300
 VisualEffect:
@@ -5060,7 +5057,7 @@ AudioSource:
   m_GameObject: {fileID: 5182090722394836425}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: caadef8c620d7ef4f94154b260ea105a,
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 6a41cb2db8b2e744d98a79cf96897655,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: f41e42db21a00604490d5154f454fa86, type: 3}
   m_PlayOnAwake: 0
@@ -5160,7 +5157,7 @@ GameObject:
   - component: {fileID: 5182090722408260149}
   - component: {fileID: 5182090722408260148}
   m_Layer: 0
-  m_Name: Particle System (2)
+  m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6008,12 +6005,12 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
   EmissionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 30
       minScalar: 10
       maxCurve:
         serializedVersion: 2

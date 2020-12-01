@@ -11,7 +11,6 @@ public class Activate : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        //ParticleSystem ClickEff = gameObject.GetComponent<ClickableEffect>();
         ClickEff = this.transform.Find("ClickableEffect").GetComponent<ParticleSystem>();
         Clicked = this.transform.Find("Clicked!").GetComponent<ParticleSystem>();
     }
