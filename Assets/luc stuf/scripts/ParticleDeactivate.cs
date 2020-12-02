@@ -5,30 +5,28 @@ using UnityEngine.Audio;
 
 public class ParticleDeactivate : MonoBehaviour
 {
-    public ParticleSystem particleFire;
-    public ParticleSystem particleSmoke;
-    public int particleAmount = 1;
+    ParticleSystem particleFire;
+    ParticleSystem particleSmoke;
     public AudioSource source;
     ParticleSystem Clicked;
     void Start()
     {
         source.Play();
         Clicked = this.transform.Find("Clicked!").GetComponent<ParticleSystem>();
-    }
-    void FixedUpdate()
-    {
-        particleFire.Emit(particleAmount);
-        particleSmoke.Emit(particleAmount);
+        particleFire = this.transform.Find("Fire").GetComponent<ParticleSystem>();
+        particleSmoke = this.transform.Find("Smoke").GetComponent<ParticleSystem>();
+        particleFire.Play();
+        particleSmoke.Play();
     }
     void OnMouseDown()
     {
         source.Stop();
         AudioSource FireOff;
-        particleAmount = 0;
+        particleFire.Stop();
+        particleSmoke.Stop();
         FireOff = GetComponent<AudioSource>();
         FireOff.Play(0);
         Clicked.Play();
-
     }
 }
 
